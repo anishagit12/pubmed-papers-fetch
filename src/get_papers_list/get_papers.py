@@ -51,7 +51,8 @@ def parse_paper_details(xml_response):
         if pub_date is not None:
             pub_year = pub_date.find("Year").text if pub_date.find("Year") is not None else "N/A"
             pub_month = pub_date.find("Month").text if pub_date.find("Month") is not None else "N/A"
-            paper["Publication Date"] = f"{pub_year}-{pub_month}-01"
+            pub_day = pub_date.find("Day").text if pub_date.find("Day") is not None else "N/A"
+            paper["Publication Date"] = f"{pub_year}-{pub_month}-{pub_day}"
         else:
             paper["Publication Date"] = "N/A"
         
